@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>{{ msg }}</h1>
     <NavBar></NavBar> 
     <router-view></router-view>
   </div>

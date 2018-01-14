@@ -1,28 +1,32 @@
-import { Blog } from '../models/models';
+import Blog, { findAllBlogs, fetchBlog, updateBlog, deleteBlog } from '../models/blog';
 // Blogs
 export var createBlog = function (blog) {
     var newBlog = new Blog(blog);
-    var check = newBlog.makeBlog();
-    if (check.length > 0) {
-        return check;
+    var hasError = newBlog.makeBlog();
+    if (hasError.length > 0) {
+        return hasError;
     }
     return '';
 };
-// module.exports = { checkBlogs };
-// export const createBlog = (blog : Interfaces.Blog) => {
-//     let newBlog = new Blog(blog);
-//     const check = newBlog.makeBlog();
-//     if (check.length > 0) {
-//       return check;
-//     }
-//     return '';
-// };
-export var updateBlog = function () { };
-export var destroyBlog = function () { };
-export var showBlog = function () { };
+export var getAllBlogs = function (updateBlogList) {
+    findAllBlogs(updateBlogList);
+};
+export var showBlog = function (id, grabBlog) {
+    fetchBlog(id, grabBlog);
+};
+export var patchBlog = function (id, blog) {
+    var hasError = updateBlog(id, blog);
+    if (hasError.length > 0) {
+        return hasError;
+    }
+    return '';
+};
+export var destroyBlog = function (id) {
+    deleteBlog(id);
+};
 // Projects
 export var createProject = function () { };
-export var updateProject = function () { };
+export var patchProject = function () { };
 export var destroyProject = function () { };
 export var showProject = function () { };
 export var getAllProjects = function () { };
@@ -31,4 +35,8 @@ export var getTopProjects = function () { };
 export var createContact = function () { };
 export var destroyContact = function () { };
 export var getAllContacts = function () { };
+// Payload Getter
+var fillErUp = function (payload) {
+    return payload;
+};
 //# sourceMappingURL=controllers.js.map

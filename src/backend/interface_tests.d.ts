@@ -3,7 +3,7 @@ export interface InitialPull {
 }
 export interface Blog {
     title: string;
-    summary: string;
+    description: string;
     blurb: string;
     img: string;
     dateCreated: number;
@@ -11,7 +11,7 @@ export interface Blog {
 }
 export interface Project {
     title: string;
-    summary: string;
+    description: string;
     blurb: string;
     img: string;
     url: string;
@@ -26,3 +26,4 @@ export interface Contact {
     dateCreated: number;
     dateUpdated: number;
 }
+export declare const checkNull: (object: any) => string;

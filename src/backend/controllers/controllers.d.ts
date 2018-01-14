@@ -1,10 +1,11 @@
 import * as Interfaces from '../interface_tests';
 export declare const createBlog: (blog: Interfaces.Blog) => string;
-export declare const updateBlog: () => void;
-export declare const destroyBlog: () => void;
-export declare const showBlog: () => void;
+export declare const getAllBlogs: (updateBlogList: any) => void;
+export declare const showBlog: (id: string, grabBlog: any) => void;
+export declare const patchBlog: (id: string, blog: Interfaces.Blog) => string;
+export declare const destroyBlog: (id: string) => void;
 export declare const createProject: () => void;
-export declare const updateProject: () => void;
+export declare const patchProject: () => void;
 export declare const destroyProject: () => void;
 export declare const showProject: () => void;
 export declare const getAllProjects: () => void;

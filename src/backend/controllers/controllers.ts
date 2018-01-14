@@ -1,42 +1,52 @@
 import * as Interfaces from '../interface_tests';
-import { Blog } from '../models/models';
+import db from '../database/database';
+
+import Blog, { 
+  findAllBlogs,
+  fetchBlog,
+  updateBlog,
+  deleteBlog
+} from '../models/blog';
+
 
 // Blogs
 export const createBlog = (blog: Interfaces.Blog) => {
-  let newBlog = new Blog(blog);
-  const hasError = newBlog.makeBlog();
+  let newBlog : any = new Blog(blog);
+  const hasError : string = newBlog.makeBlog();
 
   if (hasError.length > 0) {
     return hasError;
   }
-
   return '';
 };
 
-// module.exports = { checkBlogs };
+export const getAllBlogs = (updateBlogList : any) => { 
+  findAllBlogs(updateBlogList);
+};
 
-// export const createBlog = (blog : Interfaces.Blog) => {
-//     let newBlog = new Blog(blog);
-//     const check = newBlog.makeBlog();
+export const showBlog = (id : string, grabBlog : any) => {
+  fetchBlog(id, grabBlog);
+};
 
-//     if (check.length > 0) {
-//       return check;
-//     }
+export const patchBlog = (id : string, blog : Interfaces.Blog) => {
+  let hasError : string = updateBlog(id, blog);
 
-//     return '';
-// };
+  if (hasError.length > 0) {
+    return hasError;
+  }
+  return '';
+};
 
-export const updateBlog = () => {};
+export const destroyBlog = (id: string) : void => {
+  deleteBlog(id);
+};
 
-export const destroyBlog = () => {};
-
-export const showBlog = () => {};
 
 
 // Projects
 export const createProject = () => {};
 
-export const updateProject = () => {};
+export const patchProject = () => {};
 
 export const destroyProject = () => {};
 
@@ -53,3 +63,9 @@ export const createContact = () => {};
 export const destroyContact = () => {};
 
 export const getAllContacts = () => {};
+
+
+// Payload Getter
+const fillErUp = (payload : Array<any>) => {
+  return payload;
+}

@@ -5,7 +5,7 @@ export interface InitialPull {
 // Test JSON Test Blogs
 export interface Blog {
   title : string,
-  summary : string,
+  description : string,
   blurb : string,
   img : string,
   dateCreated : number,
@@ -15,7 +15,7 @@ export interface Blog {
 // Test Projects
 export interface Project {
   title : string,
-  summary : string,
+  description : string,
   blurb : string,
   img : string,
   url : string,
@@ -31,4 +31,25 @@ export interface Contact {
   message : string,
   dateCreated : number,
   dateUpdated : number,
+}
+
+
+// Null Check
+export const checkNull = (object : any) => {
+  const values = Object.entries(object)
+
+  for (let i = 0; i < values.length; i++) {
+    switch (values[i][0]) {
+      case 'dateCreated':
+        continue;
+      case 'dateUpdated':
+        continue;
+      default:
+        if (values[i][1] == 'null' || typeof values[i][1] === 'undefined' || values[i][1].length === 0) {
+          return `${values[i][0]} cannot be empty`;
+        }
+    }
+  }
+
+  return '';
 }

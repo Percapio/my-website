@@ -1,0 +1,14 @@
+import * as Interfaces from '../interface_tests';
+export declare const createBlog: (blog: Interfaces.Blog) => string;
+export declare const updateBlog: () => void;
+export declare const destroyBlog: () => void;
+export declare const showBlog: () => void;
+export declare const createProject: () => void;
+export declare const updateProject: () => void;
+export declare const destroyProject: () => void;
+export declare const showProject: () => void;
+export declare const getAllProjects: () => void;
+export declare const getTopProjects: () => void;
+export declare const createContact: () => void;
+export declare const destroyContact: () => void;
+export declare const getAllContacts: () => void;

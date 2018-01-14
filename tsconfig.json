@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es5",
+      "es2015",
+      "es6",
+      "es2016",
+      "es7",
+      "es2017",
+    ],
+    "moduleResolution": "node",
+    "target": "es5",
+    "sourceMap": true,
+    "strict": true,
+    "module": "es2015",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "strictFunctionTypes": true,
+    "baseUrl": "types",
+    "typeRoots": [
+      "types"
+    ]
+  },
+  "types": [ "node" ],
+  "typeRoots": [ "node_modules/@types"],
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./**/*.ts"
+  ],
+}

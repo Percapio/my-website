@@ -14,51 +14,66 @@
   })
   export default class MyApp extends Vue {
     name: string = 'app';
-    message: string = 'testing';
-
-    data () {
-      return {
-        msg: 'NavBar goes here.',
-      }
-    }
-    
-    onClick() : void {
-      window.alert(this.message);
-    }
-
-    // <button @click="onClick">Click!</button>
   };
 </script>
 
 <style lang="scss">
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
+/* Reset */
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  display: block;
+  word-wrap: inherit;
+  box-sizing: inherit;
+  font-family: inherit;
+}
 
-  h1, h2 {
-    font-weight: normal;
-  }
+ul, li {
+  list-style: none;
+}
 
-  h2 {
-    display: inline;
-  }
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
 
-  a {
-    color: #42b983;
-  }
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 </style>

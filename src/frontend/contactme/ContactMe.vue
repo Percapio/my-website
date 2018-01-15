@@ -1,7 +1,5 @@
 <template>
   <div id='contactme'>
-    <img src="../../assets/logo.png">
-
     {{ msg }}
     <section class='contact-body'>
       <form v-on:submit='addContact' class='contact-form'>
@@ -35,9 +33,9 @@
   import * as Controllers from '../../backend/controllers/controllers';
 
   @Component({})
-  export default class ContactsComponent extends Vue {
+  export default class ContactComponent extends Vue {
     name       : string      = 'contacts';
-    msg        : string      = 'Welcome to Contacts.';
+    msg        : string      = '';
     contactId  : string      = '';
     oneContact : Array<any>  = [];
     contacts   : any;
@@ -52,9 +50,9 @@
     filled         : boolean = false;
     contactFetched : boolean = false;
 
-    mounted() {
-      this.contacts = Controllers.getAllContacts( this.updateContactList.bind(this) );
-    }
+    // mounted() {
+    //   this.contacts = Controllers.getAllContacts( this.updateContactList.bind(this) );
+    // }
 
     updateContactList(newContacts : Array<any>) {
       this.contacts  = newContacts;

@@ -19,6 +19,9 @@ export interface Project {
   blurb : string,
   img : string,
   url : string,
+  technologies : Array<string>,
+  languages : Array<string>,
+  extras : Array<string>,
   ranking : number,
   dateCreated : number,
   dateUpdated : number

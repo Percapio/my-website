@@ -26,7 +26,7 @@ export interface Project {
 
 // Test Contacts
 export interface Contact {
-  name : string,
+  user : string,
   email : string,
   message : string,
   dateCreated : number,

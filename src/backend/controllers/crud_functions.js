@@ -13,7 +13,7 @@ export var updateModel = function (model, id, data) {
     if (hasError.length > 0) {
         return hasError;
     }
-    db.ref().child(model + "/" + id).update(data);
+    db.ref().child(model + "/" + id).update({ data: data });
     return '';
 };
 export var findAllItems = function (model, updateList) {
@@ -23,7 +23,7 @@ export var findAllItems = function (model, updateList) {
 };
 export var fetchItem = function (model, id, grabItem) {
     db.ref().child(model + "/" + id).once('value')
-        .then(function (payload) { return grabItem(Object.entries(payload.val())); })
+        .then(function (payload) { return grabItem(Object.values(payload.val())); })
         .catch(function (error) { return [id, { descripion: error }]; });
 };
 export var deleteItem = function (model, id) {

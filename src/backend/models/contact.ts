@@ -3,7 +3,7 @@ import * as Interfaces from '../interface_tests';
 // Export Firebase Blog Model
 export default class Blog {
   data: {
-    name        : string,
+    user        : string,
     message     : string,
     email       : string,
     dateCreated : number,
@@ -12,7 +12,7 @@ export default class Blog {
 
   constructor(props : Interfaces.Contact) {
     this.data = {
-      name        : props.name,
+      user        : props.user,
       message     : props.message,
       email       : props.email,
 

@@ -6,6 +6,7 @@
     <section class='blog-body'>
       <div class='form-container'>
         <p v-show='blogFetched'>{{ dateCreated }}<p>
+        <p v-show='blogFetched'>{{ blogId }}<p>
         <form v-on:submit='handleBlog' class='blog-form'>
           <input type='text' v-model='title' placeholder='Enter Title'>
           <textarea type='text' v-model='description' placeholder='Enter Description'/>
@@ -22,12 +23,12 @@
       <aside>
         <ul class='blog-items' v-show='filled'>
           <h4>Blogs to be listed:</h4>
-          <li v-for='blog in blogs'>
-            <p>key: {{ blog[0] }}</p>
-            <p>{{ blog[1].title }}</p>
-            <p>{{ blog[1].img }}</p>
-            <p>{{ blog[1].blurb }}</p>
-            <p>{{ blog[1].dateCreated }}</p>
+          <li v-for='(blog, index) in blogs'>
+            <p>{{ index }}: {{ blog[0] }}</p>
+            <p>{{ blog[1].data.title }}</p>
+            <p>{{ blog[1].data.img }}</p>
+            <p>{{ blog[1].data.blurb }}</p>
+            <p>{{ blog[1].data.dateCreated }}</p>
           </li>
         </ul>
       </aside>
@@ -36,9 +37,9 @@
 </template>
 
 <script lang='ts'>
-        // <button @click='renderBlogs'>Push For Blogs</button>
   import { Vue, Component } from 'vue-property-decorator';
   import { findAllCheck, addItemCheck } from '../errorhandlers';
+
   import * as Interfaces from '../../backend/interface_tests';
   import * as Controllers from '../../backend/controllers/controllers';
 
@@ -108,34 +109,6 @@
       addItemCheck(check, this.msg);
     }
 
-    getBlog() : void {
-      Controllers.showBlog(this.blogId, this.grabBlog.bind(this));
-    }
-
-    grabBlog(newBlog : Array<any>) {
-      console.log(this.oneBlog);
-      for (let i=0; i < newBlog.length; i++) {
-        switch (newBlog[i][0]) {
-          case 'title':
-            this.title = newBlog[i][1];
-            continue;
-          case 'description':
-            this.description = newBlog[i][1];
-            continue;
-          case 'blurb':
-            this.blurb = newBlog[i][1];
-            continue;
-          case 'img':
-            this.img = newBlog[i][1];
-            continue;
-          case 'dateCreated':
-            this.dateCreated = newBlog[i][1];
-            continue;
-        }
-      }
-      this.blogFetched = true;
-    }
-
     changeBlog() {
       const blogData : Interfaces.Blog = {
         title: this.title,
@@ -148,6 +121,20 @@
 
       const check = Controllers.patchBlog(this.blogId, blogData);
       addItemCheck(check, this.msg);     
+    }
+
+    getBlog() : void {
+      Controllers.showBlog(this.blogId, this.grabBlog.bind(this));
+    }
+
+    grabBlog(newBlog : Array<any>) {
+      this.title        = newBlog[0].title;
+      this.description  = newBlog[0].description;
+      this.blurb        = newBlog[0].blurb;
+      this.img          = newBlog[0].img;
+      this.dateCreated  = newBlog[0].dateCreated;
+
+      this.blogFetched = true;
     }
 
     removeBlog(e : any) : void {

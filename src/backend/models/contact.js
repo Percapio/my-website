@@ -2,7 +2,7 @@
 var Blog = /** @class */ (function () {
     function Blog(props) {
         this.data = {
-            name: props.name,
+            user: props.user,
             message: props.message,
             email: props.email,
             dateCreated: Date.now(),

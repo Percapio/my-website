@@ -19,7 +19,7 @@ export const updateModel = (model : string, id : string, data : any) => {
     return hasError;
   }
 
-  db.ref().child(`${ model }/${ id }`).update(data);
+  db.ref().child(`${ model }/${ id }`).update({ data : data });
   return '';
 }
 
@@ -34,7 +34,7 @@ export const findAllItems = (model : string, updateList : any) => {
 export const fetchItem = (model : string, id : string, grabItem : any) => {
   db.ref().child(`${ model }/${ id }`).once('value')
 
-    .then((payload : any) => grabItem(Object.entries( payload.val() )))
+    .then((payload : any) => grabItem(Object.values( payload.val() )))
 
     .catch((error : string) => [ id, { descripion: error }])
 }

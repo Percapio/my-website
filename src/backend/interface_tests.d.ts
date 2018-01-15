@@ -20,7 +20,7 @@ export interface Project {
     dateUpdated: number;
 }
 export interface Contact {
-    name: string;
+    user: string;
     email: string;
     message: string;
     dateCreated: number;

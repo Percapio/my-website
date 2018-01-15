@@ -1,7 +1,7 @@
 import * as Interfaces from '../interface_tests';
 export default class Blog {
     data: {
-        name: string;
+        user: string;
         message: string;
         email: string;
         dateCreated: number;

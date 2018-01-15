@@ -1,35 +1,28 @@
-import * as Interfaces from '../interface_tests';
 import db from '../database/database';
 
-import Blog, { 
-  findAllBlogs,
-  fetchBlog,
-  updateBlog,
-  deleteBlog
-} from '../models/blog';
+import * as Interfaces from '../interface_tests';
+import * as CRUD from './crud_functions';
 
+import Blog from '../models/blog';
+import Project from '../models/project';
+import Contact from '../models/contact';
 
+//-----------------------------------------------------------------------//
 // Blogs
-export const createBlog = (blog: Interfaces.Blog) => {
-  let newBlog : any = new Blog(blog);
-  const hasError : string = newBlog.makeBlog();
+const blogs = 'blogs'
+
+export const createBlog = (blog : Interfaces.Blog) => {
+  let newBlog    : any    = new Blog(blog);
+  const hasError : string = CRUD.makeModel(blogs, newBlog);
 
   if (hasError.length > 0) {
     return hasError;
   }
   return '';
-};
-
-export const getAllBlogs = (updateBlogList : any) => { 
-  findAllBlogs(updateBlogList);
-};
-
-export const showBlog = (id : string, grabBlog : any) => {
-  fetchBlog(id, grabBlog);
 };
 
 export const patchBlog = (id : string, blog : Interfaces.Blog) => {
-  let hasError : string = updateBlog(id, blog);
+  let hasError : string = CRUD.updateModel(blogs, id, blog);
 
   if (hasError.length > 0) {
     return hasError;
@@ -37,35 +30,75 @@ export const patchBlog = (id : string, blog : Interfaces.Blog) => {
   return '';
 };
 
+export const showBlog = (id : string, grabBlog : any) : void => {
+  CRUD.fetchItem(blogs, id, grabBlog);
+};
+
 export const destroyBlog = (id: string) : void => {
-  deleteBlog(id);
+  CRUD.deleteItem(blogs, id);
+};
+
+export const getAllBlogs = (updateBlogsList : any) : void => { 
+  CRUD.findAllItems(blogs, updateBlogsList);
 };
 
 
-
+//-----------------------------------------------------------------------//
 // Projects
-export const createProject = () => {};
+const projects = 'projects';
 
-export const patchProject = () => {};
+export const createProject = (project : Interfaces.Project) => {
+  let newProject : any    = new Project(project);
+  const hasError : string = CRUD.makeModel(projects, newProject);
 
-export const destroyProject = () => {};
+  if (hasError.length > 0) {
+    return hasError;
+  }
+  return '';
+};
 
-export const showProject = () => {};
+export const patchProject = (id : string, project : Interfaces.Project) => {
+  let hasError : string = CRUD.updateModel(projects, id, project);
+  
+  if (hasError.length > 0) {
+    return hasError;
+  }
+  return '';
+};
 
-export const getAllProjects = () => {};
+export const showProject = (id : string, grabProject : any) : void => {
+  CRUD.fetchItem(projects, id, grabProject);
+};
 
-export const getTopProjects = () => {};
+export const destroyProject = (id : string) : void => {
+  CRUD.deleteItem(projects, id);
+};
+
+export const getAllProjects = (updateProjectsList : any) : void => {
+  CRUD.findAllItems(projects, updateProjectsList);
+};
+
+export const getTopProjects = (updateProjectsList : any) => {};
 
 
+//-----------------------------------------------------------------------//
 // Contact
-export const createContact = () => {};
+const contacts = 'contacts'
 
-export const destroyContact = () => {};
+export const createContact = (contact : Interfaces.Contact) => {
+  let newContact : any    = new Contact(contact);
+  const hasError : string = CRUD.makeModel(contacts, newContact);
 
-export const getAllContacts = () => {};
+  if (hasError.length > 0) {
+    return hasError;
+  }
+  return '';
+};
 
+export const destroyContact = (id : string) : void => {
+  CRUD.deleteItem(contacts, id);
+};
 
-// Payload Getter
-const fillErUp = (payload : Array<any>) => {
-  return payload;
-}
+export const getAllContacts = (updateContactsList : any) : void => {
+  CRUD.findAllItems(contacts, updateContactsList);
+};

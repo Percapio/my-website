@@ -32,24 +32,3 @@ export interface Contact {
   dateCreated : number,
   dateUpdated : number,
 }
-
-
-// Null Check
-export const checkNull = (object : any) => {
-  const values = Object.entries(object)
-
-  for (let i = 0; i < values.length; i++) {
-    switch (values[i][0]) {
-      case 'dateCreated':
-        continue;
-      case 'dateUpdated':
-        continue;
-      default:
-        if (values[i][1] == 'null' || typeof values[i][1] === 'undefined' || values[i][1].length === 0) {
-          return `${values[i][0]} cannot be empty`;
-        }
-    }
-  }
-
-  return '';
-}

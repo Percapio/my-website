@@ -5,7 +5,7 @@
 
     <section class='blog-body'>
       <div class='form-container'>
-        <p v-if='blogFetched'>{{ dateCreated }}<p>
+        <p v-show='blogFetched'>{{ dateCreated }}<p>
         <form v-on:submit='handleBlog' class='blog-form'>
           <input type='text' v-model='title' placeholder='Enter Title'>
           <textarea type='text' v-model='description' placeholder='Enter Description'/>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <aside>
-        <ul class='blog-items' v-if='filled'>
+        <ul class='blog-items' v-show='filled'>
           <h4>Blogs to be listed:</h4>
           <li v-for='blog in blogs'>
             <p>key: {{ blog[0] }}</p>
@@ -38,23 +38,17 @@
 <script lang='ts'>
         // <button @click='renderBlogs'>Push For Blogs</button>
   import { Vue, Component } from 'vue-property-decorator';
-  import * as Interfaces from '../../backend/interface_tests';
   import { findAllCheck, addItemCheck } from '../errorhandlers';
-  import { 
-    createBlog,
-    getAllBlogs,
-    showBlog,
-    patchBlog,
-    destroyBlog,
-  } from '../../backend/controllers/controllers';
+  import * as Interfaces from '../../backend/interface_tests';
+  import * as Controllers from '../../backend/controllers/controllers';
 
   @Component({})
   export default class BlogComponent extends Vue {
-    name    : string = 'blogs';
-    msg     : string = 'Welcome to Blogs.';
+    name    : string      = 'blogs';
+    msg     : string      = 'Welcome to Blogs.';
+    blogId  : string      = '';
+    oneBlog : Array<any>  = [];
     blogs   : any;
-    blogId  : string = '';
-    oneBlog : Array<any> = [];
 
     // Blog Keys
     title       : string = '';
@@ -69,7 +63,7 @@
 
     mounted() {
       // Initial mounting of the component
-      this.blogs = getAllBlogs( this.updateBlogList.bind(this) );
+      this.blogs = Controllers.getAllBlogs( this.updateBlogList.bind(this) );
     }
 
     updateBlogList(newBlogs : Array<any>) {
@@ -110,12 +104,12 @@
         dateUpdated: 0,
       }
 
-      const check = createBlog(blogData);
+      const check = Controllers.createBlog(blogData);
       addItemCheck(check, this.msg);
     }
 
     getBlog() : void {
-      showBlog(this.blogId, this.grabBlog.bind(this));
+      Controllers.showBlog(this.blogId, this.grabBlog.bind(this));
     }
 
     grabBlog(newBlog : Array<any>) {
@@ -152,15 +146,15 @@
         dateUpdated: Date.now(),
       }
 
-      const check = patchBlog(this.blogId, blogData);
+      const check = Controllers.patchBlog(this.blogId, blogData);
       addItemCheck(check, this.msg);     
     }
 
     removeBlog(e : any) : void {
       e.preventDefault();
       
-      destroyBlog(this.blogId);
-      this.blogs = getAllBlogs( this.updateBlogList.bind(this) );
+      Controllers.destroyBlog(this.blogId);
+      this.blogs = Controllers.getAllBlogs( this.updateBlogList.bind(this) );
       this.msg = `${ this.blogId } is deleted.`
     }
   };

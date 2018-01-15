@@ -2,10 +2,9 @@
 var Blog = /** @class */ (function () {
     function Blog(props) {
         this.data = {
-            title: props.title,
-            description: props.description,
-            img: props.img,
-            blurb: props.blurb,
+            name: props.name,
+            message: props.message,
+            email: props.email,
             dateCreated: Date.now(),
             dateUpdated: Date.now(),
         };
@@ -13,4 +12,4 @@ var Blog = /** @class */ (function () {
     return Blog;
 }());
 export default Blog;
-//# sourceMappingURL=blog.js.map
+//# sourceMappingURL=contact.js.map

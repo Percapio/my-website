@@ -26,4 +26,3 @@ export interface Contact {
     dateCreated: number;
     dateUpdated: number;
 }
-export declare const checkNull: (object: any) => string;

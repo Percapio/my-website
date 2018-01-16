@@ -93,7 +93,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
   #contactme {
     width: 90%;
     display: flex;

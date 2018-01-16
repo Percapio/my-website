@@ -63,7 +63,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang='css' scoped>
   #spa {
     padding-top: 180px;
     display: flex;

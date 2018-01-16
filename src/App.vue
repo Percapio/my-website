@@ -31,7 +31,7 @@
   } 
 </script>
 
-<style lang="scss">
+<style lang='css'>
 /* Reset */
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
@@ -122,5 +122,4 @@ p { font-size: 41px; }
   p { font-size: 23px; }
   input { font-size: 23px; }
 }
-
 </style>

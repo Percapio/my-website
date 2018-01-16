@@ -45,7 +45,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
   #navbar {
     display: flex;
     position: fixed;
@@ -80,7 +80,7 @@
       display: flex;
       width: 50px;
       height: 50px;
-      margin-left: 200px;
+      margin-left: 21%;
     }
 
     img {

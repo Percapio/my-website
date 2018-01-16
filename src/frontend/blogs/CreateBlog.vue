@@ -135,7 +135,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
   #blogs, .blog-body, .blog-form, aside, .blog-items,
   .form-container {
     display: flex;

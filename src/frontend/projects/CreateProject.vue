@@ -194,7 +194,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
   #createproject, .project-body, .project-form, aside, .project-items,
   .form-container {
     display: flex;

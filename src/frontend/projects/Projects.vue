@@ -42,7 +42,7 @@
   }
 </script>
 
-<style lang='scss' scoped>
+<style lang='css' scoped>
   #projects {
     width: 90%;
     margin-top: 30px;

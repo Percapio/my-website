@@ -7,7 +7,7 @@
         <input type='text' v-model='email' placeholder='Enter Email'>
         <input type='submit' value='Submit'>
       </form>
-      <button @click='removeMessage'>Delete the message</button>
+      <button @click='removeMessage'>Clear message</button>
     </section>
     <aside class='farewell'>
       <h5>Thank you for stopping by!</h5>
@@ -101,6 +101,7 @@
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
+    margin-bottom: 150px;
   }
 
   input, #text {
@@ -139,5 +140,33 @@
 
   button:hover {
     color: red;
+  }
+
+  .farewell p {
+    margin-top: 15px;
+  }
+
+  @media (min-width : 1024px) {
+    #contactme {
+      flex-direction: row;
+    }
+
+    .contact-body, .farewell {
+      width: 45%;
+    }
+
+    input, #text {
+      width: 100%;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .contact-body {
+      margin-top: 5%;
+    }
+
+    .farewell {
+      margin-left: 10%;
+    }
   }
 </style>

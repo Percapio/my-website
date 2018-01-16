@@ -3,12 +3,12 @@
     <h2>Thomas Vu</h2>
     <hr class= 'me-hr'/>
 
-    <p class='sentences'>Dolorum ex porro sed illum dolore sint rem. Quis ipsam hic occaecati. Vel fuga cumque aut.</p>
+    <p class='sentences'>Software Engineer</p>
 
     <img :src="myface" class='my-ugly-face'>
     <hr class= 'img-hr'/>
     
-    <p  class='paragraph'>Eum numquam beatae assumenda eligendi. Assumenda deleniti tempora. Exercitationem similique qui. Earum iure dolorem quos voluptatem. Quasi molestiae dolorem minima architecto odio.</p>
+    <p  class='paragraph'>I am a Software Engineer, an English major graduate, a former Marine, and a student.  I continuously strive to learn, and to grow, through not only formal education, but the constant interactions with the incredible individuals I have met in my life.  I hope you will be one, too.</p>
   </div>
 </template>
 
@@ -40,9 +40,15 @@
     margin-top: 35px;
   }
 
-  p {
+  .paragraph {
     margin-top: 40px;
     text-indent: 5%;
+  }
+
+  @media (min-width : 1024px) {
+    img {
+      width: 50%;
+    }
   }
 </style>
 

@@ -1,19 +1,33 @@
 <template>
   <div id="app">
-    <NavBar></NavBar> 
-    <router-view></router-view>
+    <NavBar :scrolled='scrolled'/>
+    <SPA :scrolled='scrolled'/>
   </div>
 </template>
 
 <script lang='ts'>
   import { Component, Vue } from 'vue-property-decorator';
   import NavBar from './frontend/navbar/NavBar.vue';
+  import SPA from './frontend/spa/SPA.vue';
 
   @Component({
-    components: { NavBar }
+    components: { NavBar, SPA }
   })
   export default class MyApp extends Vue {
     name     : string = 'app';
+    scrolled : boolean = false;
+
+    handleScroll () {
+      this.scrolled = window.scrollY > 0;
+    }
+
+    beforeMount () {
+      window.addEventListener('scroll', this.handleScroll);
+    }
+    
+    beforeDestroy () {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
   } 
 </script>
 
@@ -96,8 +110,17 @@ h4 { font-size: 62px; }
 h5 { font-size: 52px; }
 p { font-size: 41px; }
 
-$background-blue: rgba(0, 150, 255, 0.4);
 
+@media (min-width : 1024px) {
+  #app { width: 70%; margin: 0 auto;}
 
+  h1 { font-size: 74px; }
+  h2 { font-size: 64px; }
+  h3 { font-size: 54px; }
+  h4 { font-size: 44px; }
+  h5 { font-size: 34px; }
+  p { font-size: 23px; }
+  input { font-size: 23px; }
+}
 
 </style>

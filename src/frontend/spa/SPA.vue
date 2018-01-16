@@ -10,7 +10,7 @@
 </template>
 
 <script lang='ts'>
-  import { Vue, Component } from 'vue-property-decorator';
+  import { Vue, Component, Prop } from 'vue-property-decorator';
   import { findAllCheck, addItemCheck } from '../errorhandlers';
 
   import * as Interfaces from '../../backend/interface_tests';
@@ -38,8 +38,10 @@
     project1 : Array<any>;
     project2 : Array<any>;
     project3 : Array<any>;
-    render   : boolean = false;
-    scrolled : boolean = false;
+
+    // Props
+    @Prop ()
+    scrolled : boolean;
 
     // Test
     trial    : string = 'HELLO WORLD'
@@ -57,20 +59,7 @@
       this.projects = listItms;
       this.project1 = this.projects[0];
       this.project2 = this.projects[1];
-      this.render   = true;
     }
-
-    handleScroll () {
-      this.scrolled = window.scrollY > 0;
-    }
-
-    beforeMount () {
-      window.addEventListener('scroll', this.handleScroll);
-    }
-    
-    beforeDestroy () {
-      window.removeEventListener('scroll', this.handleScroll);
-    } 
   };
 </script>
 

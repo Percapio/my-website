@@ -40,8 +40,8 @@
   import * as Controllers from '../../backend/controllers/controllers';
 
   @Component({})
-  export default class BlogComponent extends Vue {
-    name    : string      = 'blogs';
+  export default class CreateBlog extends Vue {
+    name    : string      = 'createblog';
     msg     : string      = 'Welcome to Blogs.';
     blogId  : string      = '';
     oneBlog : Array<any>  = [];

@@ -4,74 +4,74 @@ import Project from '../models/project';
 import Contact from '../models/contact';
 //-----------------------------------------------------------------------//
 // Blogs
-var blogs = 'blogs';
-export var createBlog = function (blog) {
-    var newBlog = new Blog(blog);
-    var hasError = CRUD.makeModel(blogs, newBlog);
+const blogs = 'blogs';
+export const createBlog = (blog) => {
+    let newBlog = new Blog(blog);
+    const hasError = CRUD.makeModel(blogs, newBlog);
     if (hasError.length > 0) {
         return hasError;
     }
     return '';
 };
-export var patchBlog = function (id, blog) {
-    var hasError = CRUD.updateModel(blogs, id, blog);
+export const patchBlog = (id, blog) => {
+    let hasError = CRUD.updateModel(blogs, id, blog);
     if (hasError.length > 0) {
         return hasError;
     }
     return '';
 };
-export var showBlog = function (id, grabBlog) {
+export const showBlog = (id, grabBlog) => {
     CRUD.fetchItem(blogs, id, grabBlog);
 };
-export var destroyBlog = function (id) {
+export const destroyBlog = (id) => {
     CRUD.deleteItem(blogs, id);
 };
-export var getAllBlogs = function (updateBlogsList) {
+export const getAllBlogs = (updateBlogsList) => {
     CRUD.findAllItems(blogs, updateBlogsList);
 };
 //-----------------------------------------------------------------------//
 // Projects
-var projects = 'projects';
-export var createProject = function (project) {
-    var newProject = new Project(project);
-    var hasError = CRUD.makeModel(projects, newProject);
+const projects = 'projects';
+export const createProject = (project) => {
+    let newProject = new Project(project);
+    const hasError = CRUD.makeModel(projects, newProject);
     if (hasError.length > 0) {
         return hasError;
     }
     return '';
 };
-export var patchProject = function (id, project) {
-    var hasError = CRUD.updateModel(projects, id, project);
+export const patchProject = (id, project) => {
+    let hasError = CRUD.updateModel(projects, id, project);
     if (hasError.length > 0) {
         return hasError;
     }
     return '';
 };
-export var showProject = function (id, grabProject) {
+export const showProject = (id, grabProject) => {
     CRUD.fetchItem(projects, id, grabProject);
 };
-export var destroyProject = function (id) {
+export const destroyProject = (id) => {
     CRUD.deleteItem(projects, id);
 };
-export var getAllProjects = function (updateProjectsList) {
+export const getAllProjects = (updateProjectsList) => {
     CRUD.findAllItems(projects, updateProjectsList);
 };
-export var getTopProjects = function (updateProjectsList) { };
+export const getTopProjects = (updateProjectsList) => { };
 //-----------------------------------------------------------------------//
 // Contact
-var contacts = 'contacts';
-export var createContact = function (contact) {
-    var newContact = new Contact(contact);
-    var hasError = CRUD.makeModel(contacts, newContact);
+const contacts = 'contacts';
+export const createContact = (contact) => {
+    let newContact = new Contact(contact);
+    const hasError = CRUD.makeModel(contacts, newContact);
     if (hasError.length > 0) {
         return hasError;
     }
     return '';
 };
-export var destroyContact = function (id) {
+export const destroyContact = (id) => {
     CRUD.deleteItem(contacts, id);
 };
-export var getAllContacts = function (updateContactsList) {
+export const getAllContacts = (updateContactsList) => {
     CRUD.findAllItems(contacts, updateContactsList);
 };
 //# sourceMappingURL=controllers.js.map

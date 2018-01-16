@@ -1,38 +1,38 @@
 import db from '../database/database';
 // Export Firebase Model modules
-export var makeModel = function (model, data) {
-    var hasError = checkNull(data);
+export const makeModel = (model, data) => {
+    const hasError = checkNull(data);
     if (hasError.length > 0) {
         return hasError;
     }
     db.ref().child(model).push(data);
     return '';
 };
-export var updateModel = function (model, id, data) {
-    var hasError = checkNull(data);
+export const updateModel = (model, id, data) => {
+    const hasError = checkNull(data);
     if (hasError.length > 0) {
         return hasError;
     }
-    db.ref().child(model + "/" + id).update({ data: data });
+    db.ref().child(`${model}/${id}`).update({ data: data });
     return '';
 };
-export var findAllItems = function (model, updateList) {
+export const findAllItems = (model, updateList) => {
     db.ref().child(model).once('value')
-        .then(function (payload) { return updateList(Object.entries(payload.val())); })
-        .catch(function (error) { return ['all', { description: error }]; });
+        .then((payload) => updateList(Object.entries(payload.val())))
+        .catch((error) => ['all', { description: error }]);
 };
-export var fetchItem = function (model, id, grabItem) {
-    db.ref().child(model + "/" + id).once('value')
-        .then(function (payload) { return grabItem(Object.values(payload.val())); })
-        .catch(function (error) { return [id, { descripion: error }]; });
+export const fetchItem = (model, id, grabItem) => {
+    db.ref().child(`${model}/${id}`).once('value')
+        .then((payload) => grabItem(Object.values(payload.val())))
+        .catch((error) => [id, { descripion: error }]);
 };
-export var deleteItem = function (model, id) {
-    db.ref().child(model + "/" + id).remove();
+export const deleteItem = (model, id) => {
+    db.ref().child(`${model}/${id}`).remove();
 };
 // Null Check
-var checkNull = function (object) {
-    var values = Object.entries(object);
-    for (var i = 0; i < values.length; i++) {
+const checkNull = (object) => {
+    const values = Object.entries(object);
+    for (let i = 0; i < values.length; i++) {
         switch (values[i][0]) {
             case 'dateCreated':
                 continue;
@@ -42,7 +42,7 @@ var checkNull = function (object) {
                 if (values[i][1] == 'null' ||
                     typeof values[i][1] === 'undefined' ||
                     values[i][1].length === 0) {
-                    return values[i][0] + " cannot be empty";
+                    return `${values[i][0]} cannot be empty`;
                 }
         }
     }

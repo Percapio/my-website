@@ -3,12 +3,12 @@
     <h2>Thomas Vu</h2>
     <hr class= 'me-hr'/>
 
-    <textarea rows='4' cols='40' class='sentences'>Dolorum ex porro sed illum dolore sint rem. Quis ipsam hic occaecati. Vel fuga cumque aut.</textarea>
+    <p class='sentences'>Dolorum ex porro sed illum dolore sint rem. Quis ipsam hic occaecati. Vel fuga cumque aut.</p>
 
     <img :src="myface" class='my-ugly-face'>
     <hr class= 'img-hr'/>
     
-    <textarea rows='10' cols='40' class='paragraph'>Eum numquam beatae assumenda eligendi. Assumenda deleniti tempora. Exercitationem similique qui. Earum iure dolorem quos voluptatem. Quasi molestiae dolorem minima architecto odio.</textarea>
+    <p  class='paragraph'>Eum numquam beatae assumenda eligendi. Assumenda deleniti tempora. Exercitationem similique qui. Earum iure dolorem quos voluptatem. Quasi molestiae dolorem minima architecto odio.</p>
   </div>
 </template>
 
@@ -29,39 +29,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    h2 {
-      font-weight: 700;
-      font-size: 72px;
-    }
+    width: 90%;
   }
 
-  .me-hr, .img-hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    width: 70%;
+  img {
+    margin-top: 20px;
   }
 
   .img-hr {
-    margin-top: 30px;
+    margin-top: 35px;
   }
 
-  .my-ugly-face {
-    object-fit: contain;
-    width: 100%;
-  }
-
-  textarea {
-    resize: none;
+  p {
     margin-top: 40px;
-    font-size: 28px;
-    text-indent: 40px;
-  }
-
-  .paragraph {
-    text-align: left;
-    text-indent: 40px;
+    text-indent: 5%;
   }
 </style>
 

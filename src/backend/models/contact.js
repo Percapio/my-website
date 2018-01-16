@@ -1,6 +1,6 @@
 // Export Firebase Blog Model
-var Blog = /** @class */ (function () {
-    function Blog(props) {
+export default class Blog {
+    constructor(props) {
         this.data = {
             user: props.user,
             message: props.message,
@@ -9,7 +9,5 @@ var Blog = /** @class */ (function () {
             dateUpdated: Date.now(),
         };
     }
-    return Blog;
-}());
-export default Blog;
+}
 //# sourceMappingURL=contact.js.map

@@ -6,6 +6,9 @@ export default class Project {
         blurb: string;
         img: string;
         url: string;
+        technologies: Array<string>;
+        languages: Array<string>;
+        extras: Array<any>;
         ranking: number;
         dateCreated: number;
         dateUpdated: number;

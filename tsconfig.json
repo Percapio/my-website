@@ -8,9 +8,10 @@
       "es2016",
       "es7",
       "es2017",
+      "scripthost"
     ],
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "ES2015",
     "sourceMap": true,
     "strict": true,
     "module": "es2015",

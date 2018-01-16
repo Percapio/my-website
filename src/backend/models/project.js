@@ -1,18 +1,19 @@
 // Export Firebase Project Model
-var Project = /** @class */ (function () {
-    function Project(props) {
+export default class Project {
+    constructor(props) {
         this.data = {
             title: props.title,
             description: props.description,
             img: props.img,
             blurb: props.blurb,
             url: props.url,
+            technologies: props.technologies,
+            languages: props.languages,
+            extras: props.extras,
             ranking: props.ranking,
             dateCreated: Date.now(),
             dateUpdated: Date.now()
         };
     }
-    return Project;
-}());
-export default Project;
+}
 //# sourceMappingURL=project.js.map

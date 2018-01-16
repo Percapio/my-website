@@ -1,10 +1,10 @@
 // Error checkers :: modulize it later
-export var addItemCheck = function (check, msg) {
+export const addItemCheck = (check, msg) => {
     if (check.length > 0) {
-        msg = "" + check;
+        msg = `${check}`;
     }
 };
-export var findAllCheck = function (check, msg) {
+export const findAllCheck = (check, msg) => {
     if (check.length === 0) {
         msg = 'Something went wrong in fetching the lists of blogs';
         return false;

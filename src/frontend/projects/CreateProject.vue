@@ -1,5 +1,5 @@
 <template>
-  <div id='projects'>
+  <div id='createproject'>
     <img src="../../assets/logo.png">
     {{ msg }}
 
@@ -13,10 +13,24 @@
           <input type='text' v-model='blurb' placeholder='Enter Blurb'>
           <input type='text' v-model='img' placeholder='Enter Img Url'>
           <input type='text' v-model='url' placeholder='Enter Web Url'>
+          <div class='technologies'>
+            <input type='checkbox' id='node' v-on:click='handleTech' value='NodeJS'><label for='node'>NodeJS</label>
+            <input type='checkbox' id='rails' v-on:click='handleTech' value='RubyonRails'><label for='rails'>RubyonRails</label>
+            <input type='checkbox' id='react' v-on:click='handleTech' value='React'><label for='react'>React</label>
+            <input type='checkbox' id='vue' v-on:click='handleTech' value='VueJS'><label for='vue'>VueJS</label>
+            <input type='checkbox' id='canvas' v-on:click='handleTech' value='Canvas'><label for='canvas'>Canvas</label>
+            <input type='checkbox' id='psql' v-on:click='handleTech' value='PostgreSQL'><label for='psql'>PostgreSQL</label>
+            <input type='checkbox' id='fb' v-on:click='handleTech' value='Firebase'><label for='fb'>Firebase</label>
+          </div>
 
-          <input type='submit' value='Submit or Update'>
+          <div class='languages'>
+            <input type='checkbox' id='js' v-on:click='handleLang' value='JavaScript'><label for='js'>JavaScript</label>
+            <input type='checkbox' id='ruby' v-on:click='handleLang' value='Ruby'><label for='ruby'>Ruby</label>
+            <input type='checkbox' id='ts' v-on:click='handleLang' value='TypeScript'><label for='ts'>TypeScript</label>
+          </div>
+          <input type='text' v-model='projectId' placeholder='Id'>
+          <input type='submit' value='Submit or Update' class='form-submit'>
         </form>
-        <input type='text' v-model='projectId' placeholder='Enter Id'>
         <div class='buttons'>
           <button @click='removeProject'>Delete a project</button>
           <button @click='getProject'>Grab a project</button>
@@ -48,8 +62,8 @@
   import * as Controllers from '../../backend/controllers/controllers';
 
   @Component({})
-  export default class ProjectComponent extends Vue {
-    name        : string     = 'projects';
+  export default class CreateProject extends Vue {
+    name        : string     = 'createproject';
     msg         : string     = "Welcome to Projects";
     projectId   : string     = '';
     oneProject  : Array<any> = [];
@@ -61,9 +75,9 @@
     blurb       : string = '';
     img         : string = '';
     url         : string = '';
-    technologies: Array<string>;
-    languages   : Array<string>;
-    extras      : Array<string>;
+    technologies: Array<string> = [];
+    languages   : Array<string> = [];
+    extras      : Array<string> = [];
     ranking     : number = 999;
     dateCreated : number = 0;
     dateUpdated : number;
@@ -86,6 +100,23 @@
     }
 
     // Methods
+    handleTech(e : any) {
+      if(this.technologies.includes(e.target.value)) {
+        this.technologies.splice( this.technologies.indexOf(e.target.value, 1));
+      } else {
+        this.technologies.push(e.target.value);
+      }
+    }
+
+    handleLang(e : any) {
+      if(this.languages.includes(e.target.value)) {
+        this.languages.splice( this.languages.indexOf(e.target.value, 1));
+      } else {
+        this.languages.push(e.target.value);
+      }
+      console.log(this.languages)
+    }
+
     handleProject(e : any) : void {
       e.preventDefault();
       
@@ -164,28 +195,95 @@
 </script>
 
 <style lang="scss" scoped>
-  #projects, .project-body, .project-form, aside, .project-items,
+  #createproject, .project-body, .project-form, aside, .project-items,
   .form-container {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  #projects, .project-form, .project-items, .form-container {
+  #createproject, .project-form, .project-items, .form-container {
     flex-direction: column;
   }
 
   .project-form {
-    background: #ccc;
-    color: #fff;
     margin: 10px;
+    border-radius: 2px;
+
+    input, textarea {
+      width: 500px;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+
+    input:nth-child(odd) {
+      background: rgba(0, 0, 0, 0.1);
+      border-top: 1px solid #ccc;
+    }
+
+    input:nth-child(even) {
+      border-top: 1px solid #ccc;
+    }
+
+    input:first-child {
+      border-bottom: 1px solid #ccc;
+    }
+
+    input:nth-child(5) {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .form-submit {
+      background: rgba(0, 100, 255, 0.4);
+      border-bottom: 1px solid #ccc;
+    }
+
+    .form-submit:hover {
+      background: rgba(0, 150, 255, 0.4);
+    }
 
     textarea {
       resize: none;
+      height: 200px;
+    }
+
+    .technologies, .languages {
+      margin-top: 5px;
+      display: flex;
+      flex-direction: rows;
+      flex-wrap: wrap;
+
+      p {
+        margin: 0;
+      }
+
+      input {
+        width: 70px;
+        font-size: 10px;
+        margin-right: 2px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      input:hover {
+        background: rgba(0, 150, 255, 0.4);
+      }
+    }
+
+    .languages {
+      margin-bottom: 5px;
     }
   }
 
-  input, textarea {
-    text-align: center;
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+
+    button:hover {
+      color: rgba(0, 150, 255, 0.4);;
+    }
   }
 </style>

@@ -8,6 +8,9 @@ export default class Project {
     blurb       : string,
     img         : string,
     url         : string,
+    technologies: Array<string>,
+    languages   : Array<string>,
+    extras      : Array<any>,
     ranking     : number, 
     dateCreated : number,
     dateUpdated : number
@@ -20,6 +23,9 @@ export default class Project {
       img         : props.img,
       blurb       : props.blurb,
       url         : props.url,
+      technologies: props.technologies,
+      languages   : props.languages,
+      extras      : props.extras,
       ranking     : props.ranking,
 
       dateCreated: Date.now(),

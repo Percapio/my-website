@@ -1,5 +1,5 @@
 // Config Firebase
-var config = {
+const config = {
     apiKey: "AIzaSyATI5B9Z5jc24T5RW6xjXmWEr6gL_utCJ4",
     authDomain: "my-practice-website.firebaseapp.com",
     databaseURL: "https://my-practice-website.firebaseio.com",
@@ -8,6 +8,6 @@ var config = {
     messagingSenderId: "923810443103"
 };
 // Initialize Firebase
-var fb = require('firebase'), firebase = fb.initializeApp(config), db = firebase.database();
+const fb = require('firebase'), firebase = fb.initializeApp(config), db = firebase.database();
 export default db;
 //# sourceMappingURL=database.js.map

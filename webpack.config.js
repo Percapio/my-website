@@ -41,6 +41,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        // loader: 'babel-loader',
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
@@ -51,7 +52,8 @@ module.exports = {
           "presets": [
             "@babel/preset-env",
             "@babel/preset-typescript",
-          ]
+          ],
+          "comments": false,
         }
       },
       {
@@ -99,12 +101,12 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: true,
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })

@@ -23,7 +23,8 @@ html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
-span, article, footer, time, small, h3, h4 {
+span, article, footer, time, small, 
+h3, h4, h5 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -86,12 +87,13 @@ hr {
   width: 70%;
 }
 
-h1, h2, h3, h4 { font-weight: 700; }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; }
 
 h1 { font-size: 92px; }
 h2 { font-size: 82px; }
 h3 { font-size: 72px; }
 h4 { font-size: 62px; }
+h5 { font-size: 52px; }
 p { font-size: 41px; }
 
 $background-blue: rgba(0, 150, 255, 0.4);

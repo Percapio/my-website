@@ -1,11 +1,11 @@
 <template>
   <div id='spa'>
     <Me name='me'></Me>
-    <BlogComponent name='blogs'/>
     <h2 class='sub-headers'>Projects:</h2>
     <ProjectComponent name='projects' :project='project2' v-if='scrolled'/>
     <ProjectComponent name='projects' :project='project1' v-if='scrolled'/>
     <h2 class='sub-headers'>Contact me</h2>
+    <ContactComponent name='contacts'/>
   </div>
 </template>
 
@@ -19,14 +19,14 @@
   import Me from '../me/Me.vue';
   import BlogComponent from '../blogs/Blogs.vue';
   import ProjectComponent from '../projects/Projects.vue';
-  // import ContactComponent from '../contactme/ContactMe.vue';
+  import ContactComponent from '../contactme/ContactMe.vue';
 
   // import CreateBlog from '../blogs/CreateBlog.vue';
   import CreateProject from '../projects/CreateProject.vue';
 
   @Component({
     components: { 
-      Me, BlogComponent, ProjectComponent, CreateProject
+      Me, BlogComponent, ProjectComponent, CreateProject, ContactComponent
     },
   })
   export default class SPA extends Vue {

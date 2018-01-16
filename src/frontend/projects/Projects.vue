@@ -44,7 +44,7 @@
 <style lang='scss' scoped>
   #projects {
     width: 90%;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 30px;
   }
   
@@ -56,5 +56,14 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+  }
+
+  .description {
+    text-indent: 5%;
+    margin-top: 50px;
+  }
+
+  hr {
+    margin-bottom: 30px;
   }
 </style>

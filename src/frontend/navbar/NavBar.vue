@@ -1,8 +1,8 @@
 <template>
   <div id='navbar'>
-    <a :href="mail"><img :src='mailImg'/></a>
-    <a :href="github"><img :src='gitImg'/></a>
-    <a :href="linkedin"><img :src='linkImg'/></a>
+    <a :href="mail"><img :src='mailImg'/><p>Send an e-mail?</p></a>
+    <a :href="github"><img :src='gitImg'/><p>Go to Github profile?</p></a>
+    <a :href="linkedin"><img :src='linkImg'/><p>Go to LinkedIn profile?</p></a>
   </div>
 </template>
 
@@ -23,7 +23,7 @@
     github    : string = "https://github.com/Percapio";
     gitImg    : string = 'src/assets/github.png';
     linkedin  : string = "https://www.linkedin.com/in/mrthomasmvu/";
-    linkImg   : string = 'src/assets/linkedin-logo_318-76861.jpg';
+    linkImg   : string = 'src/assets/linkedin.png';
     backtop   : string = 'src/assets/back_to_top.png';
 
     @Prop()
@@ -48,13 +48,16 @@
 <style lang="scss" scoped>
   #navbar {
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     padding-top: 30px;
     padding-bottom: 30px;
+    padding-left: 20px;
     background: white;
     border-bottom: 1px solid #ccc;
+  }
+
+  a {
+    width: 33%;
   }
 
   img {
@@ -62,15 +65,32 @@
     height: 75px;
   }
 
-@media (min-width : 1024px) {
+  p {
+    display: none;
+  }
+
+  @media (min-width : 1024px) {
     #navbar {
       width: 70%;
       padding-top: 15px;
       padding-bottom: 15px;
     }
 
+    a {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      margin-left: 200px;
+    }
+
     img {
-      width: 70%;
+      height: auto;
+    }
+
+    a:hover > p {
+      padding-left: 20px;
+      font-size: 10px;
+      display: block;
     }
   }
 </style>

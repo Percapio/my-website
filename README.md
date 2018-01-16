@@ -3,51 +3,45 @@
 
 ##### Example of backend model
 ```
-export class Blog {
+export default class Blog {
   data: {
-    title : string,
+    title       : string,
     description : string,
-    blurb : string,
-    img : string,
+    blurb       : string,
+    img         : string,
     dateCreated : number,
-    dateUpdated : number
+    dateUpdated : number,
   }
 
   constructor(props : Interfaces.Blog) {
     this.data = {
-      title : props.title,
+      title       : props.title,
       description : props.description,
-      img     : props.img,
-      blurb   : props.blurb,
+      img         : props.img,
+      blurb       : props.blurb,
 
       dateCreated : Date.now(),
       dateUpdated : Date.now(),
     }
   }
-
-  makeBlog () {
-    const check = checkNull(this.data);
-    if (check.length > 0) {
-      return check;
-    }
-
-    db.ref().child('blogs').push(this.data);
-    return '';
-  }
 }
 ```
 
-##### Example of backend controller
+##### Example of backend controllers
 ```
-export const createBlog = (blog: Interfaces.Blog) => {
-  let newBlog = new Blog(blog);
-  const hasError = newBlog.makeBlog();
+export const createBlog = (blog : Interfaces.Blog) => {
+  let newBlog    : any    = new Blog(blog);
+  const hasError : string = CRUD.makeModel(blogs, newBlog);
 
   if (hasError.length > 0) {
     return hasError;
   }
-
   return '';
+};
+
+
+export const showBlog = (id : string, grabBlog : any) : void => {
+  CRUD.fetchItem(blogs, id, grabBlog);
 };
 ```
 
@@ -64,7 +58,7 @@ export const createBlog = (blog: Interfaces.Blog) => {
     img     : string = '';
 
     // Error
-    msg   : string = 'Welcome to Blogs.';
+    msg   : string = '';
 
     addBlog(e : any) : void {
       e.preventDefault();
@@ -103,27 +97,27 @@ export const createBlog = (blog: Interfaces.Blog) => {
 ##### More Examples:
 _Async / Callback from database to render_
 
-##### Model
+##### CRUD function
 ```
-export const findAllBlogs = (updateBlogList : any) => {
+export const findAllItems = (model : string, updateList : any) => {
 
-  // Calling Firebase routes automatically return Promises
-  db.ref().child('blogs').once('value')
+  // we locate the datebase, and pull all items stored within
+  db.ref().child(model).once('value')
 
-    // We take the callback function from the rendering component
-    // and update the necessary item to be rendered
-    .then( (payload : any) => updateBlogList( Object.entries( payload.val() )))
+    // after promise has been fulfilled, we send the payload to the callback function
+    .then( (payload : any) => updateList( Object.entries( payload.val() )))
 
-    // Do something with the errors
-    .catch( (error : string) => [{ description: error }] )
+    // always gotta have those errors
+    .catch( (error : string) => ['all', { description: error }] )
 }
 ```
 
 ##### Controllers
 ```
-export const getAllBlogs = (updateBlogList : any) => { 
-  // Pass the callback function down to the model
-  findAllBlogs(updateBlogList);
+export const getAllBlogs = (updateBlogsList : any) : void => { 
+  
+  // controller connects the view with the model/database
+  CRUD.findAllItems(blogs, updateBlogsList);
 };
 ```
 

@@ -148,7 +148,12 @@
 
   @media (min-width : 1024px) {
     #contactme {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
       flex-direction: row;
+      margin-top: 0px;
+      margin-bottom: 150px;
     }
 
     .contact-body, .farewell {

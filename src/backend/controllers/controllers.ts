@@ -6,6 +6,7 @@ import * as CRUD from './crud_functions';
 import Blog from '../models/blog';
 import Project from '../models/project';
 import Contact from '../models/contact';
+import Work from '../models/project';
 
 //-----------------------------------------------------------------------//
 // Blogs
@@ -40,6 +41,43 @@ export const destroyBlog = (id: string) : void => {
 
 export const getAllBlogs = (updateBlogsList : any) : void => { 
   CRUD.findAllItems(blogs, updateBlogsList);
+};
+
+
+// -----------------------------------------------------------------------//
+// Works
+const works = 'works'
+
+export const createWork = (work : Interfaces.Work) => {
+  let newWork     : any    = new Work( work );
+  const hasError  : string = CRUD.makeModel(works, newWork);
+  
+  if (hasError.length > 0) {
+    return hasError;
+  }
+  return '';
+};
+
+export const patchWork = (id : string, work : Interfaces.Work) => {
+  let hasError : string = CRUD.updateModel(works, id, work);
+
+  if (hasError.length > 0) {
+    return hasError;
+  }
+
+  return '';
+};
+
+export const showWork = (id : string, grabWork : any) : void => {
+  CRUD.fetchItem(works, id, grabWork);
+};
+
+export const destroyWork = (id : string) : void => {
+  CRUD.deleteItem(works, id);
+};
+
+export const getAllWorks = (updateWorksList : any) : void => {
+  CRUD.findAllItems(works, updateWorksList);
 };
 
 

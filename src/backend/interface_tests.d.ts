@@ -9,6 +9,19 @@ export interface Blog {
     dateCreated: number;
     dateUpdated: number;
 }
+export interface Work {
+    title: string;
+    description: string;
+    blurb: string;
+    img: string;
+    url: string;
+    technologies: Array<string>;
+    languages: Array<string>;
+    extras: Array<string>;
+    ranking: number;
+    dateCreated: number;
+    dateUpdated: number;
+}
 export interface Project {
     title: string;
     description: string;

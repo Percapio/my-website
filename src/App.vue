@@ -101,24 +101,25 @@ hr {
   width: 70%;
 }
 
-h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+h1, h2, h3 { font-weight: 700; }
+h4, h5, h6 { font-weight: 600; }
 
-h1 { font-size: 92px; }
-h2 { font-size: 82px; }
-h3 { font-size: 72px; }
-h4 { font-size: 62px; }
-h5 { font-size: 52px; }
-p { font-size: 41px; }
+h1 { font-size: 70px; }
+h2 { font-size: 60px; }
+h3 { font-size: 50px; }
+h4 { font-size: 40px; }
+h5 { font-size: 30px; }
+p { font-size: 26px; }
 
 
 @media (min-width : 1024px) {
   #app { width: 70%; margin: 0 auto;}
 
-  h1 { font-size: 74px; }
-  h2 { font-size: 64px; }
-  h3 { font-size: 54px; }
-  h4 { font-size: 44px; }
-  h5 { font-size: 34px; }
+  h1 { font-size: 68px; }
+  h2 { font-size: 58px; }
+  h3 { font-size: 48px; }
+  h4 { font-size: 38px; }
+  h5 { font-size: 28px; }
   p { font-size: 23px; }
   input { font-size: 23px; }
 }

@@ -12,8 +12,8 @@ export interface Blog {
   dateUpdated : number
 }
 
-// Test Projects
-export interface Project {
+// Test Work
+export interface Work {
   title : string,
   description : string,
   blurb : string,
@@ -22,6 +22,21 @@ export interface Project {
   technologies : Array<string>,
   languages : Array<string>,
   extras : Array<string>,
+  ranking : number,
+  dateCreated : number,
+  dateUpdated : number
+}
+
+// Test Projects
+export interface Project {
+  title : string,
+  description : string,
+  blurb : string,
+  img : string,
+  url : string,
+  technologies : Array < string >,
+  languages : Array < string >,
+  extras : Array < string >,
   ranking : number,
   dateCreated : number,
   dateUpdated : number

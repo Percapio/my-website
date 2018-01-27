@@ -2,6 +2,7 @@ import * as CRUD from './crud_functions';
 import Blog from '../models/blog';
 import Project from '../models/project';
 import Contact from '../models/contact';
+import Work from '../models/project';
 //-----------------------------------------------------------------------//
 // Blogs
 const blogs = 'blogs';
@@ -28,6 +29,33 @@ export const destroyBlog = (id) => {
 };
 export const getAllBlogs = (updateBlogsList) => {
     CRUD.findAllItems(blogs, updateBlogsList);
+};
+// -----------------------------------------------------------------------//
+// Works
+const works = 'works';
+export const createWork = (work) => {
+    let newWork = new Work(work);
+    const hasError = CRUD.makeModel(works, newWork);
+    if (hasError.length > 0) {
+        return hasError;
+    }
+    return '';
+};
+export const patchWork = (id, work) => {
+    let hasError = CRUD.updateModel(works, id, work);
+    if (hasError.length > 0) {
+        return hasError;
+    }
+    return '';
+};
+export const showWork = (id, grabWork) => {
+    CRUD.fetchItem(works, id, grabWork);
+};
+export const destroyWork = (id) => {
+    CRUD.deleteItem(works, id);
+};
+export const getAllWorks = (updateWorksList) => {
+    CRUD.findAllItems(works, updateWorksList);
 };
 //-----------------------------------------------------------------------//
 // Projects

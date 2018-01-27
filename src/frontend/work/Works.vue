@@ -1,24 +1,24 @@
 <template>
-  <section id='projects'>
-    <h4>{{ project[1].data.title }}</h4>
-    <a :href='project[1].data.url'>
-      <img :src="project[1].data.img" class='project-img'/>
+  <section id='works'>
+    <h4>{{ work[1].data.title }}</h4>
+    <a :href='work[1].data.url'>
+      <img :src="work[1].data.img" class='work-img'/>
     </a>
-    <aside class='project-skills'>
-      <h5 class='project-subs'>Technologies</h5>
+    <aside class='work-skills'>
+      <h5 class='work-subs'>Technologies</h5>
       <ul class='skills'>
-        <li v-for='tech in project[1].data.technologies'><p>{{ tech }}</p></li>
+        <li v-for='tech in work[1].data.technologies'><p>{{ tech }}</p></li>
       </ul>
 
-      <h5 class='project-subs'>Languages</h5>
+      <h5 class='work-subs'>Languages</h5>
       <ul class='skills'>
-        <li v-for='language in project[1].data.languages'><p>{{ language }}</p></li>
+        <li v-for='language in work[1].data.languages'><p>{{ language }}</p></li>
       </ul>
 
-      <p class='description'>{{ project[1].data.description }}</p>
+      <p class='description'>{{ work[1].data.description }}</p>
     </aside>
     <div class='re-direct'>
-      <a :href='project[1].data.url'>Would you like to check out my work?</a>
+      <a :href='work[1].data.url'>Would you like to check out my work?</a>
       <hr class='re-direct-bar'/>
     </div>
   </section>
@@ -28,12 +28,12 @@
   import { Vue, Component, Prop } from 'vue-property-decorator';
 
   @Component
-  export default class ProjectComponent extends Vue {
-    name    : string = 'projects';
+  export default class WorkComponent extends Vue {
+    name    : string = 'works';
     msg     : string = '';
 
     @Prop()
-    project : Array<any>;
+    work : Array<any>;
 
     @Prop()
     trial : string;
@@ -42,7 +42,7 @@
 </script>
 
 <style lang='css' scoped>
-  #projects {
+  #works {
     width: 90%;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -58,7 +58,7 @@
     flex-wrap: wrap;
   }
 
-  .project-skills {
+  .work-skills {
     margin-top: 30px;
   }
 
@@ -95,7 +95,7 @@
       -moz-box-shadow: 9px 10px 5px 0px rgba(0,0,0,0.75);
       box-shadow: 9px 10px 5px 0px rgba(0,0,0,0.75);
     }
-    
+
     .description {
       margin-top: 30px;
     }

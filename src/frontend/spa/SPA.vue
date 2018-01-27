@@ -1,9 +1,14 @@
 <template>
   <div id='spa'>
     <Me name='me'></Me>
-    <h2 class='sub-headers'>Projects:</h2>
+    <hr class='short-bar'/>
+    <h2 class='sub-headers'>Professional Project:</h2>
+    <WorkComponent name='works' :work='work1' v-if='scrolled'/>
+    <hr class='short-bar'/>
+    <h2 class='sub-headers'>Personal Projects:</h2>
     <ProjectComponent name='projects' :project='project2' v-if='scrolled'/>
     <ProjectComponent name='projects' :project='project1' v-if='scrolled'/>
+    <hr class='short-bar'/>
     <h2 class='sub-headers'>Contact me</h2>
     <ContactComponent name='contacts'/>
   </div>
@@ -20,13 +25,16 @@
   import BlogComponent from '../blogs/Blogs.vue';
   import ProjectComponent from '../projects/Projects.vue';
   import ContactComponent from '../contactme/ContactMe.vue';
+  import WorkComponent from '../work/Works.vue';
 
   // import CreateBlog from '../blogs/CreateBlog.vue';
-  import CreateProject from '../projects/CreateProject.vue';
+  // import CreateProject from '../projects/CreateProject.vue';
+  // import CreateWork from '../work/CreateWork.vue';
 
   @Component({
     components: { 
-      Me, BlogComponent, ProjectComponent, CreateProject, ContactComponent
+      Me, BlogComponent, ProjectComponent, ContactComponent, WorkComponent
+      // CreateWork, CreateProject, CreateBlog
     },
   })
   export default class SPA extends Vue {
@@ -39,6 +47,9 @@
     project2 : Array<any>;
     project3 : Array<any>;
 
+    works    : any;
+    work1    : Array<any>;
+
     // Props
     @Prop ()
     scrolled : boolean;
@@ -49,6 +60,7 @@
     mounted() : void {
       // Controllers.getAllBlogs( this.getBlogItms.bind(this) );
       Controllers.getAllProjects( this.getProjectItms.bind(this) );
+      Controllers.getAllWorks( this.getWorkItems.bind(this) );
     }
 
     getBlogItms(listItms : Array<any>) {
@@ -59,6 +71,11 @@
       this.projects = listItms;
       this.project1 = this.projects[0];
       this.project2 = this.projects[1];
+    }
+
+    getWorkItems(listItms : Array<any>) {
+      this.works = listItms;
+      this.work1 = this.works[0];
     }
   };
 </script>
@@ -74,6 +91,19 @@
 
   .sub-headers {
     margin-top: 70px;
+    width: 100%;
   }
+
+  .short-bar {
+    width: 100%;
+    background-image: none;
+    background-color: black;
+    margin-top: 50px;
+  }
+
+  @media (min-width : 1024px) {
+
+  }
+
 </style>
 

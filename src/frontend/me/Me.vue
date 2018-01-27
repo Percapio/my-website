@@ -6,7 +6,6 @@
     <p class='sentences'>Software Engineer</p>
 
     <img :src="myface" class='my-ugly-face'>
-    <hr class= 'img-hr'/>
     
     <p  class='paragraph'>I am a Software Engineer, an English major graduate, a former Marine, and a student.  I continuously strive to learn, and to grow, through not only formal education, but the constant interactions with the incredible individuals I have met in my life.  I hope you will be one, too.</p>
   </div>
@@ -36,13 +35,17 @@
     margin-top: 20px;
   }
 
-  .img-hr {
-    margin-top: 35px;
-  }
-
   .paragraph {
     margin-top: 40px;
     text-indent: 5%;
+  }
+
+  .sentences {
+    width: 100%;
+  }
+
+  h2 {
+    width: 100%;
   }
 
   @media (min-width : 1024px) {

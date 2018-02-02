@@ -7,7 +7,8 @@
 
     <img :src="myface" class='my-ugly-face'>
     
-    <p  class='paragraph'>I am a Software Engineer, an English major graduate, a former Marine, and a student.  I continuously strive to learn, and to grow, through not only formal education, but the constant interactions with the incredible individuals I have met in my life.  I hope you will be one, too.</p>
+    <p  class='paragraph'>I am a Software Engineer, an English major graduate, a former Marine, and a student.  I continuously strive to learn, and to grow, through not only formal education, but the constant interactions with the incredible individuals I have met in my life.  
+    I hope you will be one, too.</p>
   </div>
 </template>
 
@@ -29,6 +30,7 @@
     align-items: center;
     justify-content: center;
     width: 90%;
+    padding-bottom: 50px;
   }
 
   img {
@@ -50,7 +52,7 @@
 
   @media (min-width : 1024px) {
     img {
-      width: 50%;
+      width: 30%;
     }
   }
 </style>

@@ -15,6 +15,6 @@ export declare const showProject: (id: string, grabProject: any) => void;
 export declare const destroyProject: (id: string) => void;
 export declare const getAllProjects: (updateProjectsList: any) => void;
 export declare const getTopProjects: (updateProjectsList: any) => void;
-export declare const createContact: (contact: Interfaces.Contact) => string;
+export declare const createContact: (contact: Interfaces.Contact) => void;
 export declare const destroyContact: (id: string) => void;
 export declare const getAllContacts: (updateContactsList: any) => void;

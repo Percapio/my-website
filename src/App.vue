@@ -99,6 +99,8 @@ hr {
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   width: 70%;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3 { font-weight: 700; }
@@ -113,7 +115,7 @@ p { font-size: 26px; }
 
 
 @media (min-width : 1024px) {
-  #app { width: 70%; margin: 0 auto;}
+  #app { margin: 0 auto;}
 
   h1 { font-size: 68px; }
   h2 { font-size: 58px; }

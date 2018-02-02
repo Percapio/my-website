@@ -71,7 +71,7 @@
 
   @media (min-width : 1024px) {
     #navbar {
-      width: 70%;
+      width: 100%;
       padding-top: 15px;
       padding-bottom: 15px;
     }

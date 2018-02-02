@@ -2,14 +2,14 @@
   <div id='spa'>
     <Me name='me'></Me>
     <hr class='short-bar'/>
-    <h2 class='sub-headers'>Professional Project:</h2>
-    <WorkComponent name='works' :work='work1' v-if='scrolled'/>
+    <h2 class='sub-headers professional'>Professional Project:</h2>
+    <WorkComponent name='works' :work='work1' v-if='scrolled' :color='templateRed'/>
     <hr class='short-bar'/>
-    <h2 class='sub-headers'>Personal Projects:</h2>
-    <ProjectComponent name='projects' :project='project2' v-if='scrolled'/>
-    <ProjectComponent name='projects' :project='project1' v-if='scrolled'/>
+    <h2 class='sub-headers personal'>Personal Projects:</h2>
+    <ProjectComponent name='projects' :project='project2' v-if='scrolled' :color='templateGreen'/>
+    <ProjectComponent name='projects' :project='project1' v-if='scrolled' :color='templateYellow'/>
     <hr class='short-bar'/>
-    <h2 class='sub-headers'>Contact me</h2>
+    <h2 class='sub-headers contact'>Contact me</h2>
     <ContactComponent name='contacts'/>
   </div>
 </template>
@@ -49,6 +49,10 @@
 
     works    : any;
     work1    : Array<any>;
+
+    templateYellow: string = '#f9ffb9';
+    templateRed   : string = '#ffa5a5';
+    templateGreen : string = '#c3f5c3';
 
     // Props
     @Prop ()
@@ -90,15 +94,22 @@
   }
 
   .sub-headers {
-    margin-top: 70px;
+    padding-top: 50px;
     width: 100%;
+  }
+
+  .professional {
+    background-color: #ffa5a5;
+  }
+
+  .personal {
+    background-color: #c3f5c3;
   }
 
   .short-bar {
     width: 100%;
     background-image: none;
     background-color: black;
-    margin-top: 50px;
   }
 
   @media (min-width : 1024px) {

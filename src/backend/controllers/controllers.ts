@@ -1,4 +1,5 @@
-import db from '../database/database';
+import db from '../api/database';
+import email from '../api/email';
 
 import * as Interfaces from '../interface_tests';
 import * as CRUD from './crud_functions';
@@ -123,14 +124,9 @@ export const getTopProjects = (updateProjectsList : any) => {};
 // Contact
 const contacts = 'contacts'
 
-export const createContact = (contact : Interfaces.Contact) => {
-  let newContact : any    = new Contact(contact);
-  const hasError : string = CRUD.makeModel(contacts, newContact);
-
-  if (hasError.length > 0) {
-    return hasError;
-  }
-  return '';
+export const createContact = (contact : Interfaces.Contact) : void => {
+  let newContact : any = new Contact(contact);
+  email(newContact);
 };
 
 export const destroyContact = (id : string) : void => {

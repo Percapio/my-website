@@ -1,4 +1,4 @@
-import db from '../database/database';
+import db from '../api/database';
 // Export Firebase Model modules
 export const makeModel = (model, data) => {
     const hasError = checkNull(data);

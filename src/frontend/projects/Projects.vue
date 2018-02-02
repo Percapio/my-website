@@ -1,5 +1,5 @@
 <template>
-  <section id='projects'>
+  <section id='projects' :style="{ backgroundColor: color }">
     <h4>{{ project[1].data.title }}</h4>
     <a :href='project[1].data.url'>
       <img :src="project[1].data.img" class='project-img'/>
@@ -38,20 +38,17 @@
     @Prop()
     trial : string;
 
+    @Prop()
+    color : string;
   }
 </script>
 
 <style lang='css' scoped>
   #projects {
-    width: 90%;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    padding: 35px;
+    padding-top: 40px;
   }
   
-  h4 {
-    margin-top: 35px;
-  }
-
   .skills {
     display: flex;
     justify-content: space-around;
@@ -85,11 +82,25 @@
   }
 
   @media (min-width : 1024px) {
+    #projects {
+      padding: 20%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+
     img {
       margin-left: 5%;
       width: 90%;
     }
 
+    .re-direct {
+      width: 50%;
+    }
+
+    .re-direct-bar {
+      margin-left: 17%;
+    }
+    
     a:hover > img {
       -webkit-box-shadow: 9px 10px 5px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: 9px 10px 5px 0px rgba(0,0,0,0.75);

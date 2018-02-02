@@ -1,10 +1,10 @@
 <template>
   <div id='contactme'>
     <section class='contact-body'>
-      <form v-on:submit='addContact' class='contact-form'>
-        <input type='text' v-model='user' placeholder='Enter Name'>
-        <textarea type='text' v-model='message' placeholder='Enter Message' id='text'/>
-        <input type='text' v-model='email' placeholder='Enter Email'>
+      <form class='contact-form' v-on:submit='addContact'>
+        <input type='text' v-model='user' placeholder='Enter Name' name='name'>
+        <textarea type='text' v-model='message' placeholder='Enter Message' id='text' name='body'/>
+        <input type='email' v-model='email' placeholder='Enter Email' name='_replyto'>
         <input type='submit' value='Submit'>
       </form>
       <button @click='removeMessage'>Clear message</button>
@@ -12,7 +12,7 @@
     <aside class='farewell'>
       <h5>Thank you for stopping by!</h5>
       <p>My name is Thomas Vu, and I enjoy reading, gaming, coding, hiking and exploring new things.  Feel free to reach out, as I always welcome a new friend.</p>
-      <p>mr.thomas.vu@gmail.com</p>
+      <p>contactme@thomasvu.space</p>
     </aside>
   </div>
 </template>
@@ -72,7 +72,7 @@
       })
     }
 
-    addContact() : void {
+    addContact(e : any) : void {
       const contactData : Interfaces.Contact = {
         user: this.user,
         message: this.message,
@@ -81,8 +81,10 @@
         dateUpdated: 0,
       }
 
+      e.preventDefault();
       const check = Controllers.createContact(contactData);
-      addItemCheck(check, this.msg);
+      this.removeMessage();
+      this.msg = "Thanks for reaching out!  I'll hear from you soon!";
     }
 
     removeMessage() : void {
@@ -148,7 +150,7 @@
 
   @media (min-width : 1024px) {
     #contactme {
-      width: 100%;
+      width: 80%;
       justify-content: center;
       align-items: center;
       flex-direction: row;

@@ -1,3 +1,4 @@
+import email from '../api/email';
 import * as CRUD from './crud_functions';
 import Blog from '../models/blog';
 import Project from '../models/project';
@@ -90,11 +91,7 @@ export const getTopProjects = (updateProjectsList) => { };
 const contacts = 'contacts';
 export const createContact = (contact) => {
     let newContact = new Contact(contact);
-    const hasError = CRUD.makeModel(contacts, newContact);
-    if (hasError.length > 0) {
-        return hasError;
-    }
-    return '';
+    email(newContact);
 };
 export const destroyContact = (id) => {
     CRUD.deleteItem(contacts, id);

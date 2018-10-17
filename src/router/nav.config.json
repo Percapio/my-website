@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Previous Write-Ups",
+    "list": [
+      {
+        "path": "",
+        "name": "Homepage"
+      },
+      {
+        "path": "sign_in",
+        "name": "Sign In and Sign Out Python Program"
+      },
+      {
+        "path": "crypto_pg7",
+        "name": "Crypto Challenge Part 6"
+      },
+      {
+        "path": "crypto_pg6",
+        "name": "Crypto Challenge Part 5"
+      },
+      {
+        "path": "crypto_pg5",
+        "name": "Crypto Challenge Part 4"
+      },
+      {
+        "path": "crypto_pg4",
+        "name": "Crypto Challenge Part 3"
+      },
+      {
+        "path": "crypto_pg3",
+        "name": "Crypto Challenge Part 2"
+      },
+      {
+        "path": "crypto_pg2",
+        "name": "Crypto Challenge Part 1"
+      },
+      {
+        "path": "crypto_pg1",
+        "name": "Crypto Challenge Introduction"
+      }
+    ]
+  }
+]

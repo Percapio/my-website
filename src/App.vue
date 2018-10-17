@@ -1,38 +1,22 @@
 <template>
   <div id="app">
-    <NavBar :scrolled='scrolled'/>
-    <SPA :scrolled='scrolled'/>
+    <Main />
   </div>
 </template>
 
-<script lang='ts'>
-  import { Component, Vue } from 'vue-property-decorator';
-  import NavBar from './frontend/navbar/NavBar.vue';
-  import SPA from './frontend/spa/SPA.vue';
+<script>
+import Main from '@/views/Main'
 
-  @Component({
-    components: { NavBar, SPA }
-  })
-  export default class MyApp extends Vue {
-    name     : string = 'app';
-    scrolled : boolean = false;
-
-    handleScroll () {
-      this.scrolled = window.scrollY > 0;
-    }
-
-    beforeMount () {
-      window.addEventListener('scroll', this.handleScroll);
-    }
-    
-    beforeDestroy () {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
-  } 
+export default {
+  name: 'App',
+  components: {
+    Main
+  }
+}
 </script>
 
 <style lang='css'>
-/* Reset */
+* Reset */
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
@@ -106,23 +90,15 @@ hr {
 h1, h2, h3 { font-weight: 700; }
 h4, h5, h6 { font-weight: 600; }
 
-h1 { font-size: 70px; }
-h2 { font-size: 60px; }
-h3 { font-size: 50px; }
-h4 { font-size: 40px; }
-h5 { font-size: 30px; }
-p { font-size: 26px; }
+h1 { font-size: 22px; }
+h2 { font-size: 20px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+p { font-size: 12px; }
 
 
 @media (min-width : 1024px) {
-  #app { margin: 0 auto;}
-
-  h1 { font-size: 68px; }
-  h2 { font-size: 58px; }
-  h3 { font-size: 48px; }
-  h4 { font-size: 38px; }
-  h5 { font-size: 28px; }
-  p { font-size: 23px; }
-  input { font-size: 23px; }
+  #app { margin: 0 auto; }
 }
 </style>

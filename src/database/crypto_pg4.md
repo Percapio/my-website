@@ -2,13 +2,13 @@
 Challenge 3: [Single-byte XOR cipher](https://cryptopals.com/sets/1/challenges/3)
 
 ### Table Of Contents
-* [Main Page](../)
-* [Encoding Magic Numbers: Integers](../problem1/)
-* [Digital Logic](../problem2/)
+* [Main Page](./crypto_pg1/)
+* [Encoding Magic Numbers: Integers](./crypto_pg2/)
+* [Digital Logic](./crypto_pg3/)
 * One Time Pad
-* [Frequency Analysis](../problem4/)
-* [Time Complexity](../problem5/)
-* [Hamming Distance](../problem6/)
+* [Frequency Analysis](./crypto_pg5/)
+* [Time Complexity](./crypto_pg6/)
+* [Hamming Distance](./crypto_pg7/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 ---

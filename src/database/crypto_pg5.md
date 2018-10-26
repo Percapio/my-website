@@ -2,13 +2,13 @@
 Challenge 4: [Detect single-character XOR](https://cryptopals.com/sets/1/challenges/4)
 
 ### Table Of Contents
-* [Main Page](../)
-* [Encoding Magic Numbers: Integers](../problem1/)
-* [Digital Logic](../problem2/)
-* [One Time Pad](../problem3/)
+* [Main Page](./crypto_pg1/)
+* [Encoding Magic Numbers: Integers](./crypto_pg2/)
+* [Digital Logic](./crypto_pg3/)
+* [One Time Pad](./crypto_pg4/)
 * Frequency Analysis
-* [Time Complexity](../problem5/)
-* [Hamming Distance](../problem6/)
+* [Time Complexity](./crypto_pg6/)
+* [Hamming Distance](./crypto_pg7/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 ---

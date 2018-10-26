@@ -61,12 +61,12 @@ $ pip install pysimplegui
 ### Setup Start App
 
 After creating a file (such as [example.py](https://github.com/Percapio/signINsignOUT/blob/master/example.py)), import the PySimpleGUI27 package.
-```
+```python
 import PySimpleGUI27 as sg
 ```
 
 Then setup what you want your application to display.  In this case, it is going to be some text, an input box, and a few buttons.
-```
+```python
 def start_app():
     layout = [
         [sg.Text('Enter the last four of your phone number', size=(75, 1), justification='center', font=("Helvetica", 18))],
@@ -79,14 +79,14 @@ def start_app():
 ### Create the Window
 
 Set the *window* variable to contain PySimpleGUI27 and be sure to include all of your layout configurations.
-```
+```python
 window = sg.Window('Log In/Out', auto_size_buttons=False, return_keyboard_events=True).Layout(layout)
 ```
 
 As a heads up, the *return_keyboard_events* parameter allows keyboard inputs to be saved for future use.
 
 In the next part, you want to make sure the application stays open, so write a conditional statement to do so with the proper exit option.
-```
+```python
 while True:
     button, values = window.Read()
 
@@ -106,7 +106,7 @@ In the next section, you are going to create some fake data to test your program
 ### Prepping the Data
 
 You need some data to test your application.  If you don't want to build it yourself, there is always [JSON-generator](https://www.json-generator.com/).
-```
+```json
 {
     "name": "Winters Cunningham",
     "email": "winterscunningham@coash.com",
@@ -125,13 +125,13 @@ The next few sections will cover the creation of a few new functions as well as 
 ### Setup Fetch User
 
 Before starting your Fetch User function, import the necessary packages.
-```
+```python
 import json
 import os
 ```
 
 Then create the function and set your fake data to be retrieved with the given phone number.
-```
+```python
 def fetch_user(phone_number):
     database = os.listdir('./database')
 ```
@@ -139,7 +139,7 @@ def fetch_user(phone_number):
 ### Check for User
 
 Create an iterator to step through each JSON file in your database folder.
-```
+```python
 for grab_file in database:
     location = '{}{}'.format('database/', grab_file)
     data = open(location)
@@ -147,7 +147,7 @@ for grab_file in database:
 ```
 
 Within the iterator, check if the current JSON file is going to contain the phone number you are looking for.  If it does then run a function called *user_info* (you are going to write this function this later).
-```
+```python
 if int(phone_number) == int(json_data['phone'][-4:]):
     user_info(json_data)
     break
@@ -163,7 +163,7 @@ Before you move onto the next function, don't forget that it is best practice to
 The purpose of this function is to check if a user exists in a database, and open a second display window with all the necessary information.
 
 In the modal (secondary display window), you want some time to be displayed, so *import time*, and setup your function like how you had setup your *start_app* function.
-```
+```python
 import time
 
 def user_info(json_data):
@@ -181,7 +181,7 @@ def user_info(json_data):
 ### Display Information
 
 Create the necessary conditional statements to display the secondary window and close it.  For testing cases, make every possible condition close the window.
-```
+```python
 while True:
     button, values = window.ReadNonBlocking()
 
@@ -196,7 +196,7 @@ while True:
 ### Test the Program 1
 
 To test the program, update your *start_app* function to add an additonal button check and run the *fetch_user* function.
-```
+```python
 elif button == 'Submit':
     fetch_user(phone_number)
 ```
@@ -215,7 +215,7 @@ Awesome!  Looks like everything works!
 While you are currently in the *start_app* function, you will want to enhance your program by adding some basic input sanitization.  You don't want someone to accidently inject a script into your program and cause some unintended effects.
 
 The most straightforward way to do so is to use error checking statements like *try and except*.
-```
+```python
 elif button == 'Submit':
     phone_number = values['input_box']
 
@@ -231,7 +231,7 @@ elif button == 'Submit':
 The lines written with the variable *element* are for clearing the input box of all inputted text.
 
 Within the *try* clause, add additional conditional statements to check if the number value is within the range you are checking for.
-```
+```python
 if int(phone_number) > 9999:
     sg.Popup('Enter last four of your phone number.')
 elif len(phone_number) < 4:
@@ -258,7 +258,8 @@ Looks great!
 While you are here, finish the *start_app* function with a few additional flares.
 
 First change your layout, so that everything is centered using empty text boxes.
-```
+
+```python
 layout = [
     [sg.Text('Enter the last four of your phone number', size=(75, 1), justification='center', font=("Helvetica", 18))],
     [sg.Text('', size=(35,1)), sg.InputText(font=("Helvetica", 18), justification='center', size=(30,1), key='input_box')],
@@ -268,7 +269,7 @@ layout = [
 ```
 
 Then add features such as *Clear* and *enter* key checks.
-```
+```python
 elif button == 'Clear':
     element = window.FindElement('input_box')
     element.Update('')
@@ -280,7 +281,7 @@ To reduce the chances of errors, you want to check for the *Clear* button first 
 ### Complete Fetch User
 
 Update this function to change the user's JSON file with a new log in or log out data, and add time stamps for when the changes occur.
-```
+```python
 for grab_file in database:
     location = '{}{}'.format('database/', grab_file)
     data = open(location)
@@ -303,14 +304,14 @@ The boolean statements will be used to determine whether or not to inform the us
 ### Complete User Info
 
 In the *user_info* function, add another conditional statement for displaying 'Log In' or 'Log Out' button.
-```
+```python
 if json_data['signedIN']:
     element = window.FindElement('logger')
     element.Update(text='Log Out')
 ```
 
 Update the conditional statements to modify the relevant data of the user.
-```
+```python
 if button == 'Cancel':
     return json_data
 elif button == 'Log In' or values is None:

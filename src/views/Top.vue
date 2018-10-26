@@ -1,6 +1,6 @@
 <template>
   <div id='top'>
-    <img src="@/assets/logo.png">
+    <div id='banner'>{{ msg }}</div>
     <hr />
   </div>
 </template>
@@ -13,11 +13,15 @@
     },
     data () {
       return {
-        msg: '_BANNER_'
+        msg: '> 0.0.0.0/0 NULL0'
       }
     }
   }
 </script>
 
 <style lang="css" scoped>
+  #banner {
+    font-size: 2em;
+    padding: 10%;
+  }
 </style>

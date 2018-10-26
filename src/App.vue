@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import Main from '@/views/Main'
+import Main from '@/views/Main';
 
 export default {
   name: 'App',
   components: {
-    Main
+    Main,
   }
 }
 </script>
@@ -22,7 +22,7 @@ ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
 span, article, footer, time, small, 
-h3, h4, h5 {
+h3, h4, h5, pre {
   margin: 0;
   padding: 0;
   border: 0;
@@ -41,10 +41,6 @@ h3, h4, h5 {
   border-radius: inherit;
 }
 
-ul, li {
-  list-style: none;
-}
-
 img {
   display: block;
   width: 100%;
@@ -57,10 +53,6 @@ input[type="email"],
 input[type="text"],
 input[type="submit"],
 textarea {
-  /*
-  Get rid of native styling. Read more here:
-  http://css-tricks.com/almanac/properties/a/appearance/
-  */
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -82,7 +74,7 @@ hr {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  width: 70%;
+  width: 99%;
   margin: 0;
   padding: 0;
 }
@@ -90,15 +82,21 @@ hr {
 h1, h2, h3 { font-weight: 700; }
 h4, h5, h6 { font-weight: 600; }
 
-h1 { font-size: 22px; }
-h2 { font-size: 20px; }
-h3 { font-size: 18px; }
-h4 { font-size: 16px; }
-h5 { font-size: 14px; }
-p { font-size: 12px; }
+h1 { font-size: 26px; }
+h2 { font-size: 24px; }
+h3 { font-size: 22px; }
+h4 { font-size: 20px; }
+h5 { font-size: 18px; }
+p { font-size: 16px; }
 
+
+pre {
+  background-color: gainsboro;
+  padding: 10px;
+}
 
 @media (min-width : 1024px) {
   #app { margin: 0 auto; }
+  img { width: 100% }
 }
 </style>

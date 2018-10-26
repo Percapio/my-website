@@ -2,12 +2,12 @@
 Challenge 6: [Break repeating-key XOR](https://cryptopals.com/sets/1/challenges/6)
 
 ### Table Of Contents
-* [Main Page](../)
-* [Encoding Magic Numbers: Integers](../problem1/)
-* [Digital Logic](../problem2/)
-* [One Time Pad](../problem3/)
-* [Frequency Analysis](../problem4/)
-* [Time Complexity](../problem5/)
+* [Main Page](./crypto_pg1/)
+* [Encoding Magic Numbers: Integers](./crypto_pg2/)
+* [Digital Logic](./crypto_pg3/)
+* [One Time Pad](./crypto_pg4/)
+* [Frequency Analysis](./crypto_pg5/)
+* [Time Complexity](./crypto_pg6/)
 * Hamming Distance
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
@@ -19,23 +19,23 @@ What is Hamming Distance?  According to everyone's best friend, [Wikipedia](http
 ##### Kasiski examination
 When coupled with Frequency Analysis, we are able to discover the most likely length of the key needed to decipher a cipher string.  This method of attacking a cipher is called [Kasiski examination](https://en.wikipedia.org/wiki/Kasiski_examination), and it "involve's looking for strings of characters that are repeated in a ciphertext".  The reason this works is due to how, as you may have noticed when we were encrypting the message in the last challenge, the key is dependent upon the length of the key.  Once we are able to deduce the length of the key, we can then break down the cipher text into chunks the length of the key itself.
 ```
-      Cipher text-  wsluiw rcoh vsto rys
-      key-          KEY
+Cipher text-  wsluiw rcoh vsto rys
+key-          KEY
 
-      break into chunks of length 3:
-      wsl | uiw | rco | h v | sto | rys
+break into chunks of length 3:
+wsl | uiw | rco | h v | sto | rys
 ```
 
 Following this, we do a single-key decryption on the position of the key using the Frequency analysis function we wrote up before, and then repeat it on every following position.
 ```
-      position 1 of the key includes letters:
-      w u r h s r
+position 1 of the key includes letters:
+w u r h s r
 
-      position 2 of the key includes letters:
-      s i c   t y
-      
-      position 3 of the key includes letters:
-      l w o v o s
+position 2 of the key includes letters:
+s i c   t y
+
+position 3 of the key includes letters:
+l w o v o s
 ```
 
 Doing this allows for the decryption process to be a lot more manageable by breaking up the cipher text into smaller chunks.  It also helps that we know how the original plain text was encrypted as well.
@@ -78,19 +78,19 @@ After we have the necessary binary strings for the character, we are going to go
 ```
 // Second-half of findHammingDistance
 
-    // Another for-loop to check the bits within the binary strings
-    // against one another for similarity
+  // Another for-loop to check the bits within the binary strings
+  // against one another for similarity
 
-    for( let j=0; j< bitsOfA.length; j++ ) {
-      if( bitsOfA[ j ] !== bitsOfB[ j ] ) {
+  for( let j=0; j< bitsOfA.length; j++ ) {
+    if( bitsOfA[ j ] !== bitsOfB[ j ] ) {
 
-        // if they are not the same, raise the counter by one
-        nonSameBitCounter++;
-      }
+      // if they are not the same, raise the counter by one
+      nonSameBitCounter++;
     }
   }
+}
 
-  return nonSameBitCounter;
+return nonSameBitCounter;
 ```
 
 Once we have completely iterating over both input strings, then we return _nonSameBitCounter_ for further use.

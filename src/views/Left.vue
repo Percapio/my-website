@@ -1,7 +1,6 @@
 <template>
   <div id='left'>
-    <h3>{{ msg }}</h3>
-    <router-view />
+    <router-view id='markdown' />
   </div>
 </template>
 
@@ -13,7 +12,6 @@
     },
     data () {
       return {
-        msg: 'LEFT COMPONENT'
       }
     }
   }
@@ -21,10 +19,20 @@
 
 <style lang="css" scoped>
   #left {
-    outline: 3px;
-    outline-color: red;
-    width: 70%;
-    padding: 10px;
-    display: inline-block;
+    text-align: left;
+  }
+
+  @media (min-width : 1024px) {
+    #left { 
+      margin: 0 auto;
+      width: 65%;
+      padding-left: 15%;
+    }
+
+    #markdown {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+    }
   }
 </style>

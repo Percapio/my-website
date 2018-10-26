@@ -1,28 +1,32 @@
 <template>
   <nav class="nav right">
-    <h3>{{ msg }}</h3>
-    <ul>
-      <template v-for="group in navs">
-        <li>
-          <a
-            href="#"
-            @click.prevent="group.visible = !group.visible"
-            class="nav-label"
-            v-text="group.title">
-          </a>
+    <template v-for="group in navs">
+      <li>
+        <a
+          href="#"
+          @click.prevent="group.visible = !group.visible"
+          class="nav-label"
+          v-text="group.title">
+        </a>
+      </li>
+      <ul v-show="group.visible" transition="slidedown" :style="{ maxHeight: group.list.length * 36 + 'px' }">
+        <li v-for="item in group.list">
+          <router-link
+            class="nav-link"
+            :to="{ path: '/' + item.path }"
+            active-class="is-active"
+            v-text="item.name">
+          </router-link>
         </li>
-        <ul v-show="group.visible" transition="slidedown" :style="{ maxHeight: group.list.length * 36 + 'px' }">
-          <li v-for="item in group.list">
-            <router-link
-              class="nav-link"
-              :to="{ path: '/' + item.path }"
-              active-class="is-active"
-              v-text="item.name">
-            </router-link>
-          </li>
-        </ul>
-      </template>
-    </ul>
+      </ul>
+      <li>
+        <a
+          href=""
+          class="nav-label"
+          v-text="group.back_top">
+        </a>
+      </li>
+    </template>
   </nav>
 </template>
 
@@ -49,6 +53,10 @@
 </script>
 
 <style lang="css" scoped>
+  .right {
+    text-align: left;
+  }
+
   .edit-doc-btn {
     color: red !important;
   }
@@ -76,7 +84,6 @@
   .nav-label {
     color: #9da5b3;
     font-weight: bold;
-    padding: 8px;
     display: block;
   }
 
@@ -87,13 +94,28 @@
     color: inherit;
     transition: color .2s;
 
-    &.is-active {
+    .nav-link.is-active {
       color: #4078c0;
       border-right: 2px solid;
     }
 
-    &:hover {
+    .nav-link:hover {
       color: #4078c0;
+    }
+  }
+
+  pre, code {
+    width: 80%;
+    word-wrap: normal;
+  }
+
+  ul, li {
+    list-style: none;
+  }
+
+  @media (min-width : 1024px) {
+    .right { 
+      margin: 0 auto;
     }
   }
 </style>

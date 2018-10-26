@@ -1,5 +1,6 @@
 <template>
   <div id='Main'>
+    <NavBar />
     <Top />
     <Bottom />
   </div>
@@ -8,13 +9,15 @@
 <script>
   import Top from '@/views/Top'
   import Bottom from '@/views/Bottom'
+  import NavBar from '@/views/NavBar'
 
   export default {
     name: 'Main',
 
     components: {
       Bottom,
-      Top
+      Top,
+      NavBar
     },
     data () {
       return {

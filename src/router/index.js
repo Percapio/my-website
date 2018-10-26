@@ -43,6 +43,7 @@ const route = {
 }
 
 const router = new Router({
+  mode: 'history',
   routes: formatRoute(route)
 })
 

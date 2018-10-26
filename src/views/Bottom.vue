@@ -1,6 +1,5 @@
 <template>
   <div id='bottom'>
-    <h3>{{ msg }}</h3>
     <Left />
     <Right />
   </div>
@@ -19,11 +18,15 @@
     },    
     data () {
       return {
-        msg: 'BOTTOM'
       }
     }
   }
 </script>
 
 <style lang="css" scoped>
+  @media (min-width : 1024px) {
+    #bottom{
+      display: flex;
+    }
+  }
 </style>

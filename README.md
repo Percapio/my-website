@@ -1,6 +1,6 @@
-# webpage
+# Vue & Markdown
 
-> My Webpage
+A website using NPM, Vue-Cli, VueRouter, Vue-Markdown-Loder, and Webpack as its main components for development and production.
 
 ## Build Setup
 
@@ -18,4 +18,6 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Sharing
+
+Feel free to clone this github repo.w

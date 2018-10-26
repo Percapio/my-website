@@ -2,27 +2,31 @@
 Challenge 1: [Convert hex to base64](https://cryptopals.com/sets/1/challenges/1)
 
 ### Table Of Contents
-* [Main Page](../)
+* [Main Page](./crypto_pg1/)
 * Encoding Magic Numbers: Integers
-* [Digital Logic](../problem2/)
-* [One Time Pad](../problem3/)
-* [Frequency Analysis](../problem4)
-* [Time Complexity](../problem5/)
-* [Hamming Distance](../problem6/)
+* [Digital Logic](./crypto_pg3/)
+* [One Time Pad](./crypto_pg4/)
+* [Frequency Analysis](./crypto_pg5/)
+* [Time Complexity](./crypto_pg6/)
+* [Hamming Distance](./crypto_pg7/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 ---
 ### Refreshing our minds with the number systems ( Magic Numbers )
-BaseN encoding is the process of representing a number system through a set of symbols or characters.  The standard decimal system, the one we are most familiar with (which counts 0, 1, 2... 10, 11, 12... 20, 21, etc...), is one such system.  The other systems you may have heard of differs slightly based on how many N symbols or characters used to be a representation of the value we wish to encode.
-```
-For example: 
-Base2 encoding system, otherwise known as Binary, which uses 1's and 0's.
-Base16 encoding system, aka Hexadecimal, which uses the numbers 0 - 9 and the characters from A - F.
-```
+BaseN encoding is the process of converting, or hiding information, in a number system represented by symbols or characters.  
 
-In our case to solve the first challenge, Base64 encoding is used to encode binary data with 64 symbols and characters.  The characters usually being capitalized and lowercase letters from A-Z, while the symbols are + and /. 
+>For example: 
+The encoding system for Hexadecimal, an ordered list of numbers from 0..9 to characters A..F as its number system, is Base16 which is the conversion of binary numbers into hexadecimal per 4-bit sequences.
 
-Additionally, BaseN encoding is positionally set.  Meaning, that the position of the number within a given number, or the position of a symbol and/or character, matters for both encrypting and decrypting.
+In our case, we will be working with Base64 encoding. This system is the conversion of 64 different symbols and characters into 6 bits of data.  [Base64 link](https://www.garykessler.net/library/base64.html)
+
+![alt link](./images/base64_table.png 'Base64 Table')
+
+When converting Base64
+
+>
+
+Meaning, that the position of the number within a given number, or the position of a symbol and/or character, matters for both encrypting and decrypting.
 ```
 For example:
 In a Base2 binary system: 11100111 is always going to equal to 231, and 231 will always equal 11100111.
@@ -350,6 +354,6 @@ Good Luck!
 P.S.  If there are any improvements I can make in this project, let me know!  I wanna be better.
 
 ---
-#### Bonus:
+#### References:
 * [YouTube: schenken](https://www.youtube.com/watch?v=g8OhjcudKAo) - an excellent 4-min explanation on the basic concept behind Base64 Encoding
 * [base64 chart](https://www.garykessler.net/library/base64.html) - for a quick reference

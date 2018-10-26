@@ -2,13 +2,13 @@
 Challenge 5: [Implement repeating-key XOR](https://cryptopals.com/sets/1/challenges/5)
 
 ### Table Of Contents
-* [Main Page](../)
-* [Encoding Magic Numbers: Integers](../problem1/)
-* [Digital Logic](../problem2/)
-* [One Time Pad](../problem3/)
-* [Frequency Analysis](../problem4/)
+* [Main Page](./crypto_pg1/)
+* [Encoding Magic Numbers: Integers](./crypto_pg2/)
+* [Digital Logic](./crypto_pg3/)
+* [One Time Pad](./crypto_pg4/)
+* [Frequency Analysis](./crypto_pg5/)
 * Time Complexity
-* [Hamming Distance](../problem6/)
+* [Hamming Distance](./crypto_pg7/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 ---
